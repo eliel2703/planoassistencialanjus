@@ -60,7 +60,7 @@
         .navbar {
             background: rgba(255, 255, 255, 0.98);
             backdrop-filter: blur(20px);
-            padding: 18px 0;
+            padding: 30px 0;
             transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
             box-shadow: var(--shadow-sm);
             border-bottom: 1px solid rgba(10, 36, 99, 0.1);
@@ -107,7 +107,7 @@
             padding: 5px;
         }
 
-        /* Links da Navbar - Escopo corrigido para não afetar as abas */
+        /* Links da Navbar */
         .navbar-nav .nav-link {
             color: var(--dark) !important;
             font-weight: 500;
@@ -157,29 +157,23 @@
             box-shadow: 0 8px 25px rgba(10, 36, 99, 0.25);
         }
 
-        /* Hero Section Premium */
+        /* Hero Section Premium - CORRIGIDA COM MAIS MARGEM */
         .hero {
             position: relative;
-            min-height: 100vh;
+            /* Margem aumentada bastante para garantir que a navbar não encoste na imagem */
+            margin-top: 120px; 
+            min-height: calc(100vh - 120px);
             display: flex;
             align-items: center;
-            background: linear-gradient(135deg, #0A2463 0%, #1a3a6e 50%, #3E92CC 100%);
             overflow: hidden;
-            padding-top: 80px;
-        }
-
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: url('https://images.unsplash.com/photo-1579684385127-1ef15d508118?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
+            padding: 40px 0;
+            background-image: 
+                linear-gradient(135deg, rgba(10, 36, 99, 0.85) 0%, rgba(30, 41, 59, 0.7) 100%),
+                url('FundoAnjus3.png');
+            background-repeat: no-repeat;
+            /* Alinhamento mudado para o topo para descer a imagem internamente */
+            background-position: center top; 
             background-size: cover;
-            background-position: center;
-            opacity: 0.15;
-            mix-blend-mode: overlay;
         }
 
         .hero-pattern {
@@ -188,8 +182,9 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background-image: radial-gradient(circle at 20% 50%, rgba(255, 255, 255, 0.08) 1px, transparent 1px);
+            background-image: radial-gradient(circle at 20% 50%, rgba(255, 255, 255, 0.12) 1px, transparent 1px);
             background-size: 40px 40px;
+            z-index: 1;
         }
 
         .hero-content {
@@ -316,7 +311,7 @@
             line-height: 1.7;
         }
 
-        /* Service Cards Premium */
+        /* Service Cards */
         .service-card {
             background: white;
             border-radius: 20px;
@@ -522,7 +517,7 @@
 
         .custom-tabs .nav-link.active {
             background: var(--gradient);
-            color: white !important; /* Adicionado o important para garantir a cor branca */
+            color: white !important;
             box-shadow: var(--shadow-md);
         }
 
@@ -824,6 +819,11 @@
         }
 
         @media (max-width: 767px) {
+            .hero {
+                margin-top: 90px;
+                min-height: calc(100vh - 90px);
+            }
+
             .hero h1 {
                 font-size: 32px;
             }
@@ -943,11 +943,6 @@
                         </button>
                     </div>
                 </div>
-                <div class="col-lg-6 hero-image d-none d-lg-block">
-                    <div class="hero-card animate__animated animate__fadeInRight" style="animation-delay: 0.5s;">
-                        <img src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
-                            alt="Família" style="width: 100%; border-radius: 16px;">
-                    </div>
                 </div>
             </div>
         </div>
@@ -1106,14 +1101,14 @@
                                                 <i class="fas fa-map-marker-alt"></i> 
                                                 <span>Rua da Lapa, 2728, Sala 61<br>Centro - Cascavel, PR</span>
                                             </p>
-                                            <a href="https://maps.google.com/?q=Rua+da+Lapa,+2728,+Cascavel,+PR" target="_blank" class="btn-location">
+                                            <a href="https://www.google.com/maps/search/?api=1&query=Rua+da+Lapa,+2728,+Centro,+Cascavel+-+PR" target="_blank" class="btn-location">
                                                 Abrir no GPS <i class="fas fa-external-link-alt ml-2" style="font-size: 14px;"></i>
                                             </a>
                                         </div>
                                     </div>
                                     <div class="col-md-7">
                                         <div class="map-container">
-                                            <iframe src="https://maps.google.com/maps?q=Rua%20da%20Lapa,%202728,%20Cascavel,%20PR&t=&z=15&ie=UTF8&iwloc=&output=embed" allowfullscreen="" loading="lazy"></iframe>
+                                            <iframe src="https://maps.google.com/maps?q=Rua%20da%20Lapa,%202728,%20Centro,%20Cascavel%20-%20PR&t=&z=15&ie=UTF8&iwloc=&output=embed" allowfullscreen="" loading="lazy"></iframe>
                                         </div>
                                     </div>
                                 </div>
@@ -1130,14 +1125,14 @@
                                                 <i class="fas fa-map-marker-alt"></i> 
                                                 <span>Rua Guaíra, 878, Jardim Pancera<br>Toledo, PR</span>
                                             </p>
-                                            <a href="https://maps.google.com/?q=Rua+Guaíra,+878,+Toledo,+PR" target="_blank" class="btn-location">
+                                            <a href="https://www.google.com/maps/search/?api=1&query=Rua+Gua%C3%ADra,+878,+Jardim+Pancera,+Toledo+-+PR" target="_blank" class="btn-location">
                                                 Abrir no GPS <i class="fas fa-external-link-alt ml-2" style="font-size: 14px;"></i>
                                             </a>
                                         </div>
                                     </div>
                                     <div class="col-md-7">
                                         <div class="map-container">
-                                            <iframe src="https://maps.google.com/maps?q=Rua%20Guaíra,%20878,%20Toledo,%20PR&t=&z=15&ie=UTF8&iwloc=&output=embed" allowfullscreen="" loading="lazy"></iframe>
+                                            <iframe src="https://maps.google.com/maps?q=Rua%20Gua%C3%ADra,%20878,%20Jardim%20Pancera,%20Toledo%20-%20PR&t=&z=15&ie=UTF8&iwloc=&output=embed" allowfullscreen="" loading="lazy"></iframe>
                                         </div>
                                     </div>
                                 </div>
@@ -1178,7 +1173,7 @@
                         Anjus Assistencial
                     </div>
                     <p class="footer-description">
-                        Oferecemos acolhimento e suporte integral para sua família nos momentos mais delicados, com
+                        Oferecemos acolhimento e suporte integral for sua família nos momentos mais delicados, com
                         proteção completa e benefícios exclusivos.
                     </p>
                     <div class="footer-social">
@@ -1302,13 +1297,16 @@
                 }
             });
 
-            // Smooth scrolling - A correção principal está aqui (ignorando os links de data-toggle="pill")
+            // Smooth scrolling
             $('a[href*="#"]:not([data-toggle="pill"])').on('click', function (e) {
                 var target = $(this).attr('href');
                 if (target !== '#' && $(target).length) {
                     e.preventDefault();
+                    
+                    var navbarHeight = $('.navbar').outerHeight();
+
                     $('html, body').animate({
-                        scrollTop: $(target).offset().top - 80
+                        scrollTop: $(target).offset().top - navbarHeight
                     }, 800);
                 }
             });
