@@ -107,7 +107,8 @@
             padding: 5px;
         }
 
-        .nav-link {
+        /* Links da Navbar - Escopo corrigido para não afetar as abas */
+        .navbar-nav .nav-link {
             color: var(--dark) !important;
             font-weight: 500;
             padding: 8px 20px !important;
@@ -118,11 +119,11 @@
             position: relative;
         }
 
-        .nav-link:hover {
+        .navbar-nav .nav-link:hover {
             color: var(--primary) !important;
         }
 
-        .nav-link::after {
+        .navbar-nav .nav-link::after {
             content: '';
             position: absolute;
             bottom: 0;
@@ -134,7 +135,7 @@
             transition: transform 0.3s ease;
         }
 
-        .nav-link:hover::after {
+        .navbar-nav .nav-link:hover::after {
             transform: scaleX(1);
         }
 
@@ -277,66 +278,6 @@
             padding: 40px;
             box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
             backdrop-filter: blur(10px);
-        }
-
-        .hero-stats {
-            display: flex;
-            gap: 40px;
-            margin-top: 50px;
-            flex-wrap: wrap;
-        }
-
-        .stat-item {
-            text-align: center;
-        }
-
-        .stat-number {
-            font-size: 42px;
-            font-weight: 800;
-            color: white;
-            display: block;
-            margin-bottom: 8px;
-        }
-
-        .stat-label {
-            font-size: 14px;
-            opacity: 0.9;
-            font-weight: 500;
-        }
-
-        /* Trust Section */
-        .trust-section {
-            background: white;
-            padding: 40px 0;
-            border-bottom: 1px solid var(--border);
-        }
-
-        .trust-items {
-            display: flex;
-            justify-content: space-around;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 30px;
-        }
-
-        .trust-item {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            color: var(--text);
-            font-weight: 500;
-        }
-
-        .trust-icon {
-            width: 50px;
-            height: 50px;
-            background: var(--light);
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--secondary);
-            font-size: 24px;
         }
 
         /* Section Header */
@@ -551,6 +492,105 @@
             transform: translateY(-2px);
             box-shadow: 0 8px 25px rgba(10, 36, 99, 0.25);
             color: white;
+        }
+
+        /* Locations Tabs & Map */
+        .location-tabs-wrapper {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .custom-tabs {
+            display: inline-flex;
+            gap: 15px;
+            background: white;
+            padding: 10px;
+            border-radius: 50px;
+            box-shadow: var(--shadow-sm);
+            border: 1px solid var(--border);
+        }
+
+        .custom-tabs .nav-link {
+            border-radius: 50px;
+            padding: 12px 35px;
+            font-weight: 600;
+            color: var(--text);
+            transition: all 0.3s ease;
+            border: none;
+            background: transparent;
+        }
+
+        .custom-tabs .nav-link.active {
+            background: var(--gradient);
+            color: white !important; /* Adicionado o important para garantir a cor branca */
+            box-shadow: var(--shadow-md);
+        }
+
+        .custom-tabs .nav-link i {
+            margin-right: 8px;
+        }
+
+        .location-card {
+            background: white;
+            border-radius: 24px;
+            padding: 30px;
+            box-shadow: var(--shadow-lg);
+            border: 1px solid var(--border);
+        }
+
+        .location-info h3 {
+            font-size: 28px;
+            margin-bottom: 15px;
+            color: var(--dark);
+        }
+
+        .location-info p {
+            font-size: 17px;
+            color: var(--text);
+            margin-bottom: 25px;
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+        }
+
+        .location-info p i {
+            color: var(--secondary);
+            margin-top: 5px;
+            font-size: 20px;
+        }
+
+        .map-container {
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+            height: 350px;
+        }
+
+        .map-container iframe {
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+
+        .btn-location {
+            display: inline-flex;
+            align-items: center;
+            background: var(--light);
+            color: var(--primary);
+            padding: 14px 28px;
+            border-radius: 12px;
+            font-weight: 700;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            border: 1px solid var(--border);
+        }
+
+        .btn-location:hover {
+            background: var(--gradient);
+            color: white;
+            text-decoration: none;
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
         }
 
         /* CTA Section */
@@ -801,20 +841,11 @@
                 width: 100%;
                 text-align: center;
             }
-
-            .hero-stats {
-                gap: 25px;
-            }
-
-            .stat-number {
-                font-size: 32px;
-            }
             
             .plan-card {
                 padding: 30px;
             }
 
-            /* Correção da Badge no celular */
             .plan-badge {
                 position: relative;
                 top: 0;
@@ -822,6 +853,25 @@
                 display: table;
                 margin: 0 auto 20px;
                 font-size: 12px;
+            }
+
+            .custom-tabs {
+                display: flex;
+                flex-direction: column;
+                border-radius: 16px;
+                gap: 5px;
+            }
+            .custom-tabs .nav-link {
+                text-align: center;
+                border-radius: 12px;
+            }
+            
+            .location-card {
+                padding: 20px;
+            }
+            
+            .map-container {
+                height: 250px;
             }
         }
     </style>
@@ -849,6 +899,9 @@
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#planos">Planos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#localizacao">Unidades</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#contato">Contato</a>
@@ -983,50 +1036,20 @@
                         <div class="row">
                             <div class="col-md-6">
                                 <ul class="plan-features">
-                                    <li>
-                                        <i class="fas fa-check-circle"></i>
-                                        Assistência Funerária
-                                    </li>
-                                    <li>
-                                        <i class="fas fa-check-circle"></i>
-                                        Cremação
-                                    </li>
-                                    <li>
-                                        <i class="fas fa-check-circle"></i>
-                                        Convênios Médicos e Hospitalares
-                                    </li>
-                                    <li>
-                                        <i class="fas fa-check-circle"></i>
-                                        Laboratórios
-                                    </li>
-                                    <li>
-                                        <i class="fas fa-check-circle"></i>
-                                        Empréstimo de material convalescente
-                                    </li>
+                                    <li><i class="fas fa-check-circle"></i>Assistência Funerária</li>
+                                    <li><i class="fas fa-check-circle"></i>Cremação</li>
+                                    <li><i class="fas fa-check-circle"></i>Convênios Médicos e Hospitalares</li>
+                                    <li><i class="fas fa-check-circle"></i>Laboratórios</li>
+                                    <li><i class="fas fa-check-circle"></i>Empréstimo de material convalescente</li>
                                 </ul>
                             </div>
                             <div class="col-md-6">
                                 <ul class="plan-features">
-                                    <li>
-                                        <i class="fas fa-check-circle"></i>
-                                        Odontologia
-                                    </li>
-                                    <li>
-                                        <i class="fas fa-check-circle"></i>
-                                        Convênio PET
-                                    </li>
-                                    <li>
-                                        <i class="fas fa-check-circle"></i>
-                                        Farmácias
-                                    </li>
-                                    <li>
-                                        <i class="fas fa-check-circle"></i>
-                                        Óticas
-                                    </li>
-                                    <li>
-                                        <i class="fas fa-check-circle"></i>
-                                        Descontos em procedimentos estéticos
-                                    </li>
+                                    <li><i class="fas fa-check-circle"></i>Odontologia</li>
+                                    <li><i class="fas fa-check-circle"></i>Convênio PET</li>
+                                    <li><i class="fas fa-check-circle"></i>Farmácias</li>
+                                    <li><i class="fas fa-check-circle"></i>Óticas</li>
+                                    <li><i class="fas fa-check-circle"></i>Descontos em procedimentos estéticos</li>
                                 </ul>
                             </div>
                         </div>
@@ -1038,6 +1061,91 @@
                             </button>
                         </div>
                     </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="localizacao" class="section" style="background: var(--light);">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-badge">Onde Estamos</span>
+                <h2 class="section-title">Nossas Unidades</h2>
+                <p class="section-description">
+                    Selecione a unidade mais próxima para visualizar o endereço e o mapa. Venha tomar um café com a gente!
+                </p>
+            </div>
+
+            <div class="row justify-content-center">
+                <div class="col-lg-10">
+                    
+                    <div class="location-tabs-wrapper animate__animated animate__fadeInUp">
+                        <ul class="nav nav-pills custom-tabs" id="locationTabs" role="tablist">
+                            <li class="nav-item" role="presentation">
+                                <a class="nav-link active" id="matriz-tab" data-toggle="pill" href="#matriz" role="tab" aria-controls="matriz" aria-selected="true">
+                                    <i class="fas fa-building"></i> Matriz - Cascavel
+                                </a>
+                            </li>
+                            <li class="nav-item" role="presentation">
+                                <a class="nav-link" id="filial-tab" data-toggle="pill" href="#filial" role="tab" aria-controls="filial" aria-selected="false">
+                                    <i class="fas fa-store"></i> Filial - Toledo
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="tab-content" id="locationTabsContent">
+                        
+                        <div class="tab-pane fade show active" id="matriz" role="tabpanel" aria-labelledby="matriz-tab">
+                            <div class="location-card animate__animated animate__fadeIn">
+                                <div class="row align-items-center">
+                                    <div class="col-md-5 mb-4 mb-md-0">
+                                        <div class="location-info">
+                                            <h3>Matriz Cascavel</h3>
+                                            <p>
+                                                <i class="fas fa-map-marker-alt"></i> 
+                                                <span>Rua da Lapa, 2728, Sala 61<br>Centro - Cascavel, PR</span>
+                                            </p>
+                                            <a href="https://maps.google.com/?q=Rua+da+Lapa,+2728,+Cascavel,+PR" target="_blank" class="btn-location">
+                                                Abrir no GPS <i class="fas fa-external-link-alt ml-2" style="font-size: 14px;"></i>
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-7">
+                                        <div class="map-container">
+                                            <iframe src="https://maps.google.com/maps?q=Rua%20da%20Lapa,%202728,%20Cascavel,%20PR&t=&z=15&ie=UTF8&iwloc=&output=embed" allowfullscreen="" loading="lazy"></iframe>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="tab-pane fade" id="filial" role="tabpanel" aria-labelledby="filial-tab">
+                             <div class="location-card animate__animated animate__fadeIn">
+                                <div class="row align-items-center">
+                                    <div class="col-md-5 mb-4 mb-md-0">
+                                        <div class="location-info">
+                                            <h3>Filial Toledo</h3>
+                                            <p>
+                                                <i class="fas fa-map-marker-alt"></i> 
+                                                <span>Rua Guaíra, 878, Jardim Pancera<br>Toledo, PR</span>
+                                            </p>
+                                            <a href="https://maps.google.com/?q=Rua+Guaíra,+878,+Toledo,+PR" target="_blank" class="btn-location">
+                                                Abrir no GPS <i class="fas fa-external-link-alt ml-2" style="font-size: 14px;"></i>
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-7">
+                                        <div class="map-container">
+                                            <iframe src="https://maps.google.com/maps?q=Rua%20Guaíra,%20878,%20Toledo,%20PR&t=&z=15&ie=UTF8&iwloc=&output=embed" allowfullscreen="" loading="lazy"></iframe>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
                 </div>
             </div>
         </div>
@@ -1112,6 +1220,7 @@
                         <li><a href="#home">Início</a></li>
                         <li><a href="#servicos">Serviços</a></li>
                         <li><a href="#planos">Benefícios e Planos</a></li>
+                        <li><a href="#localizacao">Unidades</a></li>
                         <li><a href="#contato">Contato</a></li>
                     </ul>
                 </div>
@@ -1158,7 +1267,7 @@
             
             <div class="footer-bottom">
                 <div>
-                    &copy; 2026 Plano Assistencial Familiar Anjus. Todos os direitos reservados.
+                    © 2026 Plano Assistencial Familiar Anjus. Todos os direitos reservados.
                 </div>
                 <div style="color: rgba(255, 255, 255, 0.8);">
                     Cuidando de quem você ama com respeito e dignidade
@@ -1193,8 +1302,8 @@
                 }
             });
 
-            // Smooth scrolling
-            $('a[href*="#"]').on('click', function (e) {
+            // Smooth scrolling - A correção principal está aqui (ignorando os links de data-toggle="pill")
+            $('a[href*="#"]:not([data-toggle="pill"])').on('click', function (e) {
                 var target = $(this).attr('href');
                 if (target !== '#' && $(target).length) {
                     e.preventDefault();
